@@ -10,8 +10,8 @@
     - name
 
 # Features
-- daily import csv data over authenticated HTTP
-- view/template to choose a city and show all hotels
+- [ ] daily import csv data over authenticated HTTP
+- [x] view/template to choose a city and show all hotels
 - unit tests
 - documentation and comments
 
