@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Here are the hotels that are in {{ city }}</h1>
+        <table style="border:solid; margin:10px;">
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+            </tr>
+            {% for hotel in hotels %}
+                <tr>
+                    <td>{{ hotel.hotel_code }}</td>
+                    <td>{{ hotel.name }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

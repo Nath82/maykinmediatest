@@ -3,6 +3,8 @@ from .views import *
 
 
 urlpatterns = [
-    path('hotel/', get_hotel),
-    path('city/', get_city)
+    path('', show_data),
+    path('hotel/', get_hotel_http),
+    path('city/', get_city_http),
+    path('hotelsfromcity/', get_hotels)
 ]
