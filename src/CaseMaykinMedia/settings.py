@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hotelDataApp'
+    'hotelDataApp',
+    # 'django_crontab'
 ]
 
 MIDDLEWARE = [
@@ -49,6 +50,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# CRONJOBS = [
+#     ('*/1 * * * *', 'hotelDataApp.cron.my_scheduled_job')
+# ]
 
 ROOT_URLCONF = 'CaseMaykinMedia.urls'
 
@@ -117,6 +122,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# Adding the staticfiles directory to use the js file
+STATICFILES_DIRS = [
+    BASE_DIR / "hotelDataApp" / "static"
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

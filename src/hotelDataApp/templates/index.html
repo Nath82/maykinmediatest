@@ -2,19 +2,30 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Hotel Data</title>
+    <title>Cities</title>
+    {% load static %}
+    <script src="{% static 'script.js' %}"></script>
 </head>
-<body>
+<body id="body">
     <h1>Hello, choose a city to see all the hotels attached to it</h1>
     
-    <form action="/hotelsfromcity/" method="GET">
+    <form method="GET">
         <label for="city">Choose a city : </label>
         <select name="city">
             {% for city in cities %}
                 <option>{{ city.name }}</option>
             {% endfor %}
         </select>
-        <input type="submit" value="Go">
+        <input type="button" onclick="get_hotels(city.value)" value="Ok">
     </form>
+    
+    <!--Structure for display hotel data, it will be completed in the js function-->
+    <h1 id="hoteltitle"></h1>
+    <table id="hoteltable">
+        <tr id="tabletitle">
+            <th id="code"></th>
+            <th id="name"></th>
+        </tr>
+    </table>
 </body>
 </html>
