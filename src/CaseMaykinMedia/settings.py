@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'hotelDataApp',
-    # 'django_crontab'
+    'django_crontab'
 ]
 
 MIDDLEWARE = [
@@ -51,9 +51,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# CRONJOBS = [
-#     ('*/1 * * * *', 'hotelDataApp.cron.my_scheduled_job')
-# ]
 
 ROOT_URLCONF = 'CaseMaykinMedia.urls'
 
@@ -132,3 +129,8 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# CronJobs
+CRONJOBS = [
+    ('1 0 * * *', 'hotelDataApp.cron.my_scheduled_job')
+]
