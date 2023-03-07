@@ -28,8 +28,7 @@ def my_scheduled_job():
             city.save()  
         except IndexError:
             print("An item of cities is empty")
-
-
+    
     url = "http://rachel.maykinmedia.nl/djangocase/hotel.csv"
     payload={}
     headers = {
@@ -52,3 +51,5 @@ def my_scheduled_job():
         name = hotels[i][2][1:-1]
         hotel = Hotel(city_code=city_code, hotel_code=hotel_code, name=name)
         hotel.save()
+        
+    print(hotels)

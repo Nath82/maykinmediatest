@@ -29,8 +29,19 @@ async function get_hotels(city) {
         let row_2 = document.createElement('tr')
         let hotel_code = document.createElement('td')
         let hotel_name = document.createElement('td')
-        hotel_code.textContent = hotels[i].hotel_code
-        hotel_name.textContent = hotels[i].name
+        let hotel_code_link = document.createElement('a')
+        let hotel_name_link = document.createElement('a')
+        let text_code = document.createTextNode(hotels[i].hotel_code)
+        let text_name = document.createTextNode(hotels[i].name)
+
+        hotel_code_link.appendChild(text_code)
+        hotel_name_link.appendChild(text_name)
+
+        hotel_code_link.href = "singlehotel/"+hotels[i].hotel_code
+        hotel_name_link.href = "singlehotel/"+hotels[i].hotel_code
+
+        hotel_code.appendChild(hotel_code_link)
+        hotel_name.appendChild(hotel_name_link)
         row_2.appendChild(hotel_code)
         row_2.appendChild(hotel_name)
         table.appendChild(row_2)

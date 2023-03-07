@@ -90,3 +90,8 @@ def get_hotels(request, city):
     context = (Hotel.objects.filter(city_code=code).values())
     result = json.dumps(list(context))
     return HttpResponse(content=result)
+
+def get_hotel(request, code):
+    context = {}
+    context["hotel"] = Hotel.objects.get(hotel_code=code)
+    return render(request, 'hotel.html', context=context)

@@ -33,3 +33,12 @@ class TestViews(TestCase):
         # Assertions
         self.assertEquals(response.status_code, 200)
         self.assertEquals(len(response.content), 2)
+
+    def test_get_hotel(self):
+        # Test
+        response = self.client.get(reverse('single-hotel', args['AMS01']))
+        
+        # Assertions
+        self.assertEquals(response.status_code, 200)
+        # self.assertEquals(resp, second) = tester que les champs correspondent et que la taille est de 1
+        
