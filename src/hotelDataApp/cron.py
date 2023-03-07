@@ -2,6 +2,7 @@ import requests
 from hotelDataApp.models import City, Hotel
 
 def my_scheduled_job():
+    # Cities first for the foreign key in the model
     url = "http://rachel.maykinmedia.nl/djangocase/city.csv"
     payload={}
     headers = {
@@ -28,7 +29,8 @@ def my_scheduled_job():
             city.save()  
         except IndexError:
             print("An item of cities is empty")
-    
+
+    # And then hotels
     url = "http://rachel.maykinmedia.nl/djangocase/hotel.csv"
     payload={}
     headers = {
@@ -51,5 +53,3 @@ def my_scheduled_job():
         name = hotels[i][2][1:-1]
         hotel = Hotel(city_code=city_code, hotel_code=hotel_code, name=name)
         hotel.save()
-        
-    print(hotels)

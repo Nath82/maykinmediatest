@@ -133,5 +133,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CronJobs
 CRONJOBS = [
-    ('*/1 * * * *', 'hotelDataApp.cron.my_scheduled_job')
+    ('1 0 * * *', 'hotelDataApp.cron.my_scheduled_job')
 ]
