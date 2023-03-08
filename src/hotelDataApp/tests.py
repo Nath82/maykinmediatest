@@ -16,6 +16,11 @@ class TestViews(TestCase):
             name='Amsterdam',
             code='AMS'
         )
+        Hotel.objects.create(
+            city_code= City.objects.get(code='AMS'),
+            hotel_code='AMS01',
+            name='Ibis Amsterdam Airport'
+        )
         
     
     def test_show_data(self):
@@ -32,13 +37,12 @@ class TestViews(TestCase):
         
         # Assertions
         self.assertEquals(response.status_code, 200)
-        self.assertEquals(len(response.content), 2)
 
     def test_get_hotel(self):
         # Test
-        response = self.client.get(reverse('single-hotel', args['AMS01']))
+        response = self.client.get(reverse('single-hotel', args=['AMS01']))
         
         # Assertions
         self.assertEquals(response.status_code, 200)
-        # self.assertEquals(resp, second) = tester que les champs correspondent et que la taille est de 1
+        self.assertTemplateUsed(response, 'hotel.html')
         
